@@ -18,6 +18,7 @@ type Props = {
 
 // This function allows us to compare relations with a deep comparison,
 // maybe not in the most robust way...
+// TODO: Make this better
 const stringifyRelations = (relations: Array<RelationType>): string => {
   const stringifiedLabels = (relations || []).map(r => {
     // $FlowFixMe TODO
@@ -38,6 +39,7 @@ const stringifyRelations = (relations: Array<RelationType>): string => {
 };
 
 export class ArcherElementNoContext extends React.Component<Props> {
+  // TODO: Use componentDidUpdate instead
   componentWillReceiveProps(nextProps: Props) {
     if (
       stringifyRelations(this.props.relations) ===

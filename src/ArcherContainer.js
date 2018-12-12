@@ -129,13 +129,13 @@ export class ArcherContainer extends React.Component<Props, State> {
     window.addEventListener('resize', this.refreshScreen);
   }
 
-  componentWillUnmount() {
-    Object.keys(this.state.refs).map(elementKey => {
-      const { observer } = this.state;
-      observer.unobserve(this.state.refs[elementKey]);
-    });
-    window.removeEventListener('resize', this.refreshScreen);
-  }
+  // componentWillUnmount() {
+  //   Object.keys(this.state.refs).map(elementKey => {
+  //     const { observer } = this.state;
+  //     observer.unobserve(this.state.refs[elementKey]);
+  //   });
+  //   window.removeEventListener('resize', this.refreshScreen);
+  // }
 
   refreshScreen = (): void => {
     this.setState({ ...this.state });
