@@ -1,5 +1,7 @@
 var path = require('path');
 var webpack = require('webpack');
+var TerserPlugin = require('terser-webpack-plugin');
+
 var isProd = process.env.NODE_ENV === 'production' || null;
 
 // TODO lots of cleanup to do here
@@ -56,13 +58,9 @@ if (isProd) {
   config.output.sourceMapFilename = 'react-archer.min.js';
   config.plugins = config.plugins ? config.plugins : [];
   config.plugins.push(
-    new webpack.optimize.UglifyJsPlugin({
-      compress: {
-        warnings: false,
-      },
-      mangle: {
-        except: ['React', 'ReactDOM', 'Archer', 'ReactArcher'],
-      },
+    new TerserPlugin({
+      cache: true,
+      parallel: true,
     }),
   );
 }
