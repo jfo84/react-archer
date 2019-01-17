@@ -243,9 +243,6 @@ export class ArcherContainer extends React.Component<Props, State> {
         parentCoordinates,
       );
 
-      console.log('Parent coordinates');
-      console.log(parentCoordinates);
-
       return (
         <SvgArrow
           key={JSON.stringify({ source, target })}

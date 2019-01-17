@@ -122,12 +122,23 @@ const SvgArrow = ({
   arrowLabel,
   arrowMarkerId,
 }: Props) => {
+  console.log('Props');
+  console.log({
+    startingPoint,
+    startingAnchor,
+    endingPoint,
+    endingAnchor,
+    strokeColor,
+    arrowLength,
+    strokeWidth,
+    arrowLabel,
+    arrowMarkerId,
+  });
+
   const actualArrowLength = arrowLength * 2;
 
   const xs = startingPoint.x;
   const ys = startingPoint.y;
-  console.log('ys');
-  console.log(ys);
 
   const { xe, ye } = computeEndingPointAccordingToArrow(
     endingPoint.x,
@@ -136,8 +147,6 @@ const SvgArrow = ({
     strokeWidth,
     endingAnchor,
   );
-  console.log('ye');
-  console.log(ye);
 
   const { xa1, ya1 } = computeStartingAnchorPosition(
     xs,
@@ -146,8 +155,7 @@ const SvgArrow = ({
     ye,
     startingAnchor,
   );
-  console.log('ya1');
-  console.log(ya1);
+
   const { xa2, ya2 } = computeEndingAnchorPosition(
     xs,
     ys,
@@ -155,8 +163,6 @@ const SvgArrow = ({
     ye,
     endingAnchor,
   );
-  console.log('ya2');
-  console.log(ya2);
 
   const pathString =
     `M${xs},${ys} ` + `C${xa1},${ya1} ${xa2},${ya2} ` + `${xe},${ye}`;
