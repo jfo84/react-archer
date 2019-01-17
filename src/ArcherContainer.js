@@ -155,12 +155,6 @@ export class ArcherContainer extends React.Component<Props, State> {
   ): Point => {
     const rect = this.getRectFromRef(this.state.refs[index]);
 
-    console.log('rect');
-    console.log(rect);
-
-    console.log('position');
-    console.log(position);
-
     if (!rect) {
       return new Point(0, 0);
     }
@@ -168,12 +162,6 @@ export class ArcherContainer extends React.Component<Props, State> {
       position,
       rect,
     );
-
-    console.log('absolute position');
-    console.log(absolutePosition);
-
-    console.log('after subtracting parent coordinates');
-    console.log(absolutePosition.substract(parentCoordinates));
 
     return absolutePosition.substract(parentCoordinates);
   };

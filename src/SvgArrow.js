@@ -122,6 +122,19 @@ const SvgArrow = ({
   arrowLabel,
   arrowMarkerId,
 }: Props) => {
+  console.log('Arrow Props');
+  console.log({
+    startingPoint,
+    startingAnchor,
+    endingPoint,
+    endingAnchor,
+    strokeColor,
+    arrowLength,
+    strokeWidth,
+    arrowLabel,
+    arrowMarkerId,
+  });
+
   const actualArrowLength = arrowLength * 2;
 
   const xs = startingPoint.x;
