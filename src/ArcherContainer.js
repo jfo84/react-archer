@@ -172,6 +172,9 @@ export class ArcherContainer extends React.Component<Props, State> {
     console.log('absolute position');
     console.log(absolutePosition);
 
+    console.log('after subtracting parent coordinates');
+    console.log(absolutePosition.substract(parentCoordinates));
+
     return absolutePosition.substract(parentCoordinates);
   };
 
@@ -245,12 +248,18 @@ export class ArcherContainer extends React.Component<Props, State> {
         parentCoordinates,
       );
 
+      console.log('Starting point');
+      console.log(startingPoint);
+
       const endingAnchor = target.anchor;
       const endingPoint = this.getPointCoordinatesFromAnchorPosition(
         target.anchor,
         target.id,
         parentCoordinates,
       );
+
+      console.log('Ending point');
+      console.log(endingPoint);
 
       return (
         <SvgArrow
