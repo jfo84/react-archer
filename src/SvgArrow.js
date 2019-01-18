@@ -125,7 +125,7 @@ const SvgArrow = ({
   arrowLabel,
   arrowMarkerId,
 }: Props) => {
-  const actualArrowLength = arrowLength * 2;
+  // const actualArrowLength = arrowLength * 2;
 
   const xs = startingPoint.x;
   const ys = startingPoint.y;
@@ -133,7 +133,7 @@ const SvgArrow = ({
   const { xe, ye } = computeEndingPointAccordingToArrow(
     endingPoint.x,
     endingPoint.y,
-    actualArrowLength,
+    arrowLength,
     strokeWidth,
     endingAnchor,
   );
