@@ -53,20 +53,16 @@ export function computeStartingAnchorPosition(
   startingAnchor: AnchorPositionType,
 ): { xa1: number, ya1: number } {
   if (startingAnchor === 'top' || startingAnchor === 'bottom') {
-    console.log('ys');
-    console.log(ys);
-    console.log('ye');
-    console.log(ye);
-    const ya1 = ys + (ye - ys) / 2;
-    console.log('ya1');
-    console.log(ya1);
-    return { xa1: xs, ya1 };
+    return {
+      xa1: xs,
+      ya1: ys + (ye - ys) / 2,
+    };
   }
-
   if (startingAnchor === 'left' || startingAnchor === 'right') {
-    const xa1 = xs + (xe - xs) / 2;
-
-    return { xa1, ya1: ys };
+    return {
+      xa1: xs + (xe - xs) / 2,
+      ya1: ys,
+    };
   }
 
   return { xa1: xs, ya1: ys };
@@ -80,16 +76,16 @@ export function computeEndingAnchorPosition(
   endingAnchor: AnchorPositionType,
 ): { xa2: number, ya2: number } {
   if (endingAnchor === 'top' || endingAnchor === 'bottom') {
-    const ya2 = ye - (ye - ys) / 2;
-    console.log('ya2');
-    console.log(ya2);
-    return { xa2: xe, ya2 };
+    return {
+      xa2: xe,
+      ya2: ye - (ye - ys) / 2,
+    };
   }
-
   if (endingAnchor === 'left' || endingAnchor === 'right') {
-    const xa2 = xe - (xe - xs) / 2;
-
-    return { xa2, ya2: ye };
+    return {
+      xa2: xe - (xe - xs) / 2,
+      ya2: ye,
+    };
   }
 
   return { xa2: xe, ya2: ye };
@@ -126,6 +122,19 @@ const SvgArrow = ({
   arrowLabel,
   arrowMarkerId,
 }: Props) => {
+  console.log('Arrow Props');
+  console.log({
+    startingPoint,
+    startingAnchor,
+    endingPoint,
+    endingAnchor,
+    strokeColor,
+    arrowLength,
+    strokeWidth,
+    arrowLabel,
+    arrowMarkerId,
+  });
+
   const actualArrowLength = arrowLength * 2;
 
   const xs = startingPoint.x;
@@ -159,7 +168,7 @@ const SvgArrow = ({
     `M${xs},${ys} ` + `C${xa1},${ya1} ${xa2},${ya2} ` + `${xe},${ye}`;
 
   console.log('path string');
-  console.log(pathString);
+  console.log(pathString)
 
   const { xl, yl, wl, hl } = computeLabelDimensions(xs, ys, xe, ye);
 
