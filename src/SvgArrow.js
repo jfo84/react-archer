@@ -167,6 +167,9 @@ const SvgArrow = ({
   const pathString =
     `M${xs},${ys} ` + `C${xa1},${ya1} ${xa2},${ya2} ` + `${xe},${ye}`;
 
+  console.log('path string');
+  console.log(pathString);
+
   const { xl, yl, wl, hl } = computeLabelDimensions(xs, ys, xe, ye);
 
   return (
