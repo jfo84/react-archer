@@ -40,7 +40,9 @@ export function computeEndingPointAccordingToArrow(
   const { arrowX, arrowY } = computeEndingArrowDirectionVector(endingAnchor);
 
   const xe = xEnd + (arrowX * arrowLength * strokeWidth) / 2;
+  console.log(xe);
   const ye = yEnd + (arrowY * arrowLength * strokeWidth) / 2;
+  console.log(ye);
 
   return { xe, ye };
 }
