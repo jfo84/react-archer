@@ -81,7 +81,8 @@ export function computeEndingAnchorPosition(
 ): { xa2: number, ya2: number } {
   if (endingAnchor === 'top' || endingAnchor === 'bottom') {
     const ya2 = ye - (ye - ys) / 2;
-
+    console.log('ya2');
+    console.log(ya2);
     return { xa2: xe, ya2 };
   }
 
@@ -125,7 +126,7 @@ const SvgArrow = ({
   arrowLabel,
   arrowMarkerId,
 }: Props) => {
-  // const actualArrowLength = arrowLength * 2;
+  const actualArrowLength = arrowLength * 2;
 
   const xs = startingPoint.x;
   const ys = startingPoint.y;
@@ -133,7 +134,7 @@ const SvgArrow = ({
   const { xe, ye } = computeEndingPointAccordingToArrow(
     endingPoint.x,
     endingPoint.y,
-    arrowLength,
+    actualArrowLength,
     strokeWidth,
     endingAnchor,
   );
